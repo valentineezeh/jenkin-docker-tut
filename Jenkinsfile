@@ -1,4 +1,5 @@
-// scrited approach the stage('build') are not mandatory
+// scrited approach the stage('build'){} are not mandatory
+// stage block are optional
 node {
 	echo "Build"
 	echo "Test"
