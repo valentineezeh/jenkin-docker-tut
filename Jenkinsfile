@@ -9,10 +9,15 @@
 // Declarative pipeline
 // agent is similar to node but it gives you a lot of flexibility
 pipeline {
-	agent any // use any of the agent
+	// use any of the agent
+	// agent any
+	// here our agent is a docker image
+	agent { docker { image 'maven:3.6.3' } }
+
 	stages {
 		stage('Build') {
 			steps {
+				sh 'mvn --version'
 				echo "Build"
 			}
 		}
@@ -32,10 +37,16 @@ pipeline {
 			echo 'I am awesome. I run always'
 		}
 		success {
+			// do something after a success
 			echo 'I run when you are successful'
 		}
 		failure {
+			// do something after a failure
 			echo 'I run when you fails'
 		}
+		// changed {
+		// 	// do something when the status of the build changes
+		// 	echo 'i run when the status of the build changes'
+		// }
 	}
 }
