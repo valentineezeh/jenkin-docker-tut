@@ -41,18 +41,19 @@ pipeline {
 				sh "mvn clean compile"
 			}
 		}
-		stage('Package') {
-			steps {
-				// run the mnv package and skip the test
-				sh "mvn package -DskipTests"
-			}
-		}
 
 		stage('Test') {
 			steps {
 				// this is to run your unit test just similar to your npm test
 				sh "mvn test"
 				// echo "Test"
+			}
+		}
+
+		stage('Package') {
+			steps {
+				// run the mnv package and skip the test
+				sh "mvn package -DskipTests"
 			}
 		}
 
