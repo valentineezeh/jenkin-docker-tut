@@ -74,7 +74,7 @@ pipeline {
 				// here we will be pushing a docker image
 				script {
 					// attach your docker hub credential to the push below using 'withRegistry'
-					docker.withRegistry('', 'dockerhub'){
+					docker.withRegistry('', "dockerhub"){
 						dockerImage.push()
 						dockerImage.push('latest')
 					}
